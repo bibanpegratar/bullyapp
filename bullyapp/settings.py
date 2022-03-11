@@ -82,10 +82,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bullyapp',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': 'U%$H8Rwyn!8Zth8TC@##J@GK$Gt%&L6X*2pg',
+        'HOST': 'bullyapp.mysql.pythonanywhere-services.com',
+        'USER': 'bullyapp',
+        'PASSWORD': 'e8tj_Rwzmzbee',
     }
 }
 
