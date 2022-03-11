@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-a!n)vfjv@n%7$e0lb-7)v#^axu0&o#+&ak*yt1ar0khsq%&6af
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'bullyapp.pythonanywhere.com']
 
 
 # Application definition
