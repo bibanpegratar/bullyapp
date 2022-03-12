@@ -6,8 +6,8 @@ class User(models.Model):
     username = models.CharField(max_length=26, null=True)
     password = models.CharField(max_length=90, null=False, blank=False, default='')
     email = models.CharField(max_length=100, unique=True, null=False, blank=False)
-    created = models.DateTimeField(auto_now_add=True, editable=False, default='')
-    last_modified = models.DateTimeField(auto_now=True, editable=False, default='')
+    created = models.DateTimeField(auto_now_add=True, editable=False)
+    last_modified = models.DateTimeField(auto_now=True, editable=False)
     validated = models.BooleanField(default=False)
 
 class Post(models.Model):
