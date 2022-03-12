@@ -28,6 +28,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', 'bullyapp.pythonanywhere.com', 'bullyapp.herokuapp.com']
 
+AUTH_USER_MODEL = 'account.User'
+
 
 # Application definition
 
