@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'bullyapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bullyapp',
-        'HOST': 'bullyapp.mysql.pythonanywhere-services.com',
+        'NAME': 'bullyapp$bullyapp',
         'USER': 'bullyapp',
         'PASSWORD': 'e8tj_Rwzmzbee',
+        'HOST': 'bullyapp.mysql.pythonanywhere-services.com',
     }
 }
 
