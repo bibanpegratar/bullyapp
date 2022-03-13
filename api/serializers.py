@@ -20,12 +20,12 @@ from .models import *
 #         instance.save()
 #         return instance
         
-# class UserSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = User
-#         fields = '__all__'
-#         # fields = ['password', 'email']
-#         # read_only_fields = ['id', 'username', 'created', 'last_modified', 'validated']
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = '__all__'
+        # fields = ['password', 'email']
+        # read_only_fields = ['id', 'username', 'created', 'last_modified', 'validated']
 
 # #used only for user validation
 # class UserValidationSerializer(serializers.ModelSerializer):
