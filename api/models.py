@@ -57,9 +57,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = UserManager()
 
-    def __str__(self):
-        return self.username
-
 # class Post(models.Model):
 #     user_id = models.ForeignKey('User', on_delete=models.CASCADE, db_column='user_id')
 #     caption = models.CharField(max_length=250, default='')
