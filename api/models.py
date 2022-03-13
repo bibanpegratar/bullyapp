@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 import unittest
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, AbstractUser, PermissionsMixin
@@ -16,6 +17,8 @@ class UserManager(BaseUserManager):
     email = self.normalize_email(email)
 
     user = self.model(
+        #username is null
+        username=NULL,
         email=email,
         is_staff=is_staff, 
         is_active=True,
@@ -41,6 +44,7 @@ class UserManager(BaseUserManager):
 # Create your models here
 
 class User(AbstractBaseUser, PermissionsMixin):
+    username = models.CharField(max_length=60, null=True)
     email = models.EmailField(max_length=254, unique=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
