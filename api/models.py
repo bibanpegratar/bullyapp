@@ -14,7 +14,7 @@ class UserManager(BaseUserManager):
 
     now = timezone.now()
     email = self.normalize_email(email)
-    
+
     user = self.model(
         email=email,
         is_staff=is_staff, 
@@ -22,7 +22,7 @@ class UserManager(BaseUserManager):
         is_superuser=is_superuser, 
         last_login=now,
         date_joined=now, 
-        last_modified=now
+        last_modified=now,
         **extra_fields
     )
 
