@@ -20,26 +20,26 @@ from .models import *
 #         instance.save()
 #         return instance
         
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = '__all__'
-        # fields = ['password', 'email']
-        # read_only_fields = ['id', 'username', 'created', 'last_modified', 'validated']
+# class UserSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = User
+#         fields = '__all__'
+#         # fields = ['password', 'email']
+#         # read_only_fields = ['id', 'username', 'created', 'last_modified', 'validated']
 
-#used only for user validation
-class UserValidationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['username', 'password', 'email', 'validated']
-        read_only_fields = ['id', 'created', 'last_modified']
+# #used only for user validation
+# class UserValidationSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = User
+#         fields = ['username', 'password', 'email', 'validated']
+#         read_only_fields = ['id', 'created', 'last_modified']
 
-class PostSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Post
-        fields = '__all__'
+# class PostSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Post
+#         fields = '__all__'
 
-class CommentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Comment
-        fields = '__all__'
+# class CommentSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Comment
+#         fields = '__all__'
