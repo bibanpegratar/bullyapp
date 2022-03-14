@@ -27,19 +27,18 @@ class UserSerializer(serializers.ModelSerializer):
         # fields = ['password', 'email']
         # read_only_fields = ['id', 'username', 'created', 'last_modified', 'validated']
 
-# #used only for user validation
-# class UserValidationSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = User
-#         fields = ['username', 'password', 'email', 'validated']
-#         read_only_fields = ['id', 'created', 'last_modified']
 
-# class PostSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Post
-#         fields = '__all__'
+class AuthenticationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['password', 'email']
 
-# class CommentSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Comment
-#         fields = '__all__'
+class PostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Post
+        fields = '__all__'
+
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = '__all__'

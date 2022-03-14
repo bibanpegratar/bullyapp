@@ -43,10 +43,7 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'django.contrib.sites',
     'rest_framework',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -61,36 +58,17 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
+}
+
 ROOT_URLCONF = 'bullyapp.urls'
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                # Already defined Django-related contexts here
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-
-                # `allauth` needs this from django
-                'django.template.context_processors.request',
-            ],
-        }
-    }
-
-]
-
-AUTHENTICATION_BACKENDS = [
-    # Needed to login by username in Django admin, regardless of `allauth`
-    'django.contrib.auth.backends.ModelBackend',
-
-    # `allauth` specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
 
 WSGI_APPLICATION = 'bullyapp.wsgi.application'
 
@@ -138,10 +116,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
-SITE_ID = 1
-
-ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 
 # Static files (CSS, JavaScript, Images)
