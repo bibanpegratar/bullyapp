@@ -5,12 +5,9 @@ from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.authtoken.models import Token
 from rest_framework.views import APIView
 from .models import *
 from .serializers import *
-from django.db import IntegrityError
-from django.core.exceptions import ValidationError
 
 # Create your views here.
 
@@ -28,26 +25,12 @@ class UserAPIView(APIView):
         return Response(serializer.data)
 
     def post(self, request):
-        try:
-            serializer = UserSerializer(data=request.data)
+        serializer = UserSerializer(data=request.data)
 
-            if serializer.is_valid():
-                user = serializer.save()
-                user.is_active = True
-                user.username = 'user_' + User.objects.get(email=user.email).id
-                user.save()
-                token = Token.objects.get_or_create(user=user)[0].key
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
-        except IntegrityError as e:
-            account=User.objects.get(username='')
-            account.delete()
-            raise ValidationError({"400": f'{str(e)}'})
-
-        except KeyError as e:
-            print(e)
-            raise ValidationError({"400": f'Field {str(e)} missing'})
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 #get a user
 #GET - return a user by pk
